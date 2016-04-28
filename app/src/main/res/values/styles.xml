@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="MyAppTheme.Base">
+
+    </style>
+
+    <style name="MyAppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        // Cor do texto da Toolbar e Details
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:textColorTertiary">@android:color/white</item>
+
+        <item name="android:typeface">serif</item>
+
+        // Cor do texto dos textview
+        <item name="android:textColor">@color/colorPrimary</item>
+
+        <item name="android:windowBackground">@color/colorBackground</item>
+
+    </style>
+
+</resources>

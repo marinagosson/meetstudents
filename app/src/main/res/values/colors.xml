@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">@color/color_six</color>
+    <color name="colorPrimaryDark">@color/color_five</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_one">#607D8B</color>
+    <color name="color_two">#212121</color>
+    <color name="color_three">#EC407A</color>
+    <color name="color_four">#64DD17</color>
+    <color name="color_five">#0094ac</color>
+    <color name="color_six">#00CEEF</color>
+
+    <color name="colorBackground">#fff</color>
+
+
+</resources>
