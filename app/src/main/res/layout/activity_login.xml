@@ -7,15 +7,6 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <!--<android.support.v7.widget.Toolbar-->
-    <!--android:id="@+id/activity_toolbar_profile_user"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:background="?attr/colorPrimary"-->
-    <!--android:elevation="4dp"-->
-    <!--android:minHeight="?attr/actionBarSize"-->
-    <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
-
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"

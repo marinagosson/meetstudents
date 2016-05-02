@@ -1,5 +1,6 @@
 package br.com.meetstudents;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -68,7 +69,11 @@ public class LoginActivity extends AppCompatActivity {
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError(getString(R.string.error_field_required));
+            focusView = mPasswordView;
+            cancel = true;
+        } else if (!isPasswordValid(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -106,7 +111,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickCriarConta(View view) {
-
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 }
 
