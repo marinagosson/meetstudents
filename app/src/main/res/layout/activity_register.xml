@@ -37,10 +37,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/nome"
+                    android:imeOptions="actionNext"
                     android:inputType="textAutoComplete"
                     android:maxLines="1"
                     android:nextFocusDown="@+id/sobrenome"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -53,11 +55,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/sobrenome"
+                    android:imeOptions="actionNext"
                     android:inputType="textAutoComplete"
                     android:maxLines="1"
-                    android:nextFocusUp="@+id/nome"
                     android:nextFocusDown="@+id/email"
-                    android:singleLine="true" />
+                    android:nextFocusUp="@+id/nome"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -71,10 +75,12 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailSubject"
-                    android:nextFocusUp="@+id/sobrenome"
-                    android:nextFocusDown="@+id/password"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:imeOptions="actionNext"
+                    android:nextFocusDown="@+id/password"
+                    android:nextFocusUp="@+id/sobrenome"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -88,10 +94,12 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
                     android:inputType="textPassword"
-                    android:nextFocusUp="@+id/email"
-                    android:nextFocusDown="@+id/confirm_password"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:imeOptions="actionNext"
+                    android:nextFocusDown="@+id/confirm_password"
+                    android:nextFocusUp="@+id/email"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -105,10 +113,12 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_confirm_password"
                     android:inputType="textPassword"
-                    android:nextFocusUp="@+id/password"
-                    android:nextFocusDown="@+id/button_register"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:imeOptions="actionDone"
+                    android:nextFocusDown="@+id/button_register"
+                    android:nextFocusUp="@+id/password"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary" />
 
             </android.support.design.widget.TextInputLayout>
 
