@@ -40,6 +40,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/color_five"
         android:padding="26dp"
+        android:clickable="true"
+        android:onClick="onClickIrParaCadastro"
         android:text="@string/criar_conta"
         android:textColor="#FFF"
         android:textStyle="bold" />
