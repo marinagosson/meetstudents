@@ -1,5 +1,6 @@
 package br.com.meetstudents;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,20 +9,13 @@ import android.view.View;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        toolbar = (Toolbar) findViewById(R.id.activity_toolbar_register);
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.activity_toolbar_register);
         toolbar.setTitle("Cadastro");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -41,6 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void onClickRegistar(View view) {
-
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }
