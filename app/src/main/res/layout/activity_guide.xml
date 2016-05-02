@@ -32,13 +32,13 @@
         android:padding="26dp"
         android:text="@string/voce_nao_tem_uma_conta"
         android:textColor="@color/color_five"
-        android:textSize="24sp" />
+        android:textSize="22sp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_five"
-        android:padding="24dp"
+        android:padding="25dp"
+        android:backgroundTint="@color/color_five"
         android:text="@string/criar_conta"
         android:textColor="#FFF"
         android:textStyle="bold" />
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
-        android:padding="16dp"
+        android:padding="10dp"
         android:text="@string/entrar"
         android:textColor="@color/color_five"
         android:textSize="18sp" />
