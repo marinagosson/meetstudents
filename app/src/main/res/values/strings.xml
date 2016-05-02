@@ -3,4 +3,18 @@
     <string name="voce_nao_tem_uma_conta">Você não tem uma conta ?</string>
     <string name="criar_conta">Criar conta</string>
     <string name="entrar">Já possuo uma conta, entrar.</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">E-mail</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">E-mail inválido</string>
+    <string name="error_invalid_password">Senha inválida</string>
+    <string name="error_incorrect_password">Senha errada</string>
+    <string name="error_field_required">Campo obrigatório</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 </resources>

@@ -35,10 +35,11 @@
         android:textSize="22sp" />
 
     <Button
+        style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="25dp"
         android:backgroundTint="@color/color_five"
+        android:padding="26dp"
         android:text="@string/criar_conta"
         android:textColor="#FFF"
         android:textStyle="bold" />
@@ -47,7 +48,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:clickable="true"
         android:gravity="center_horizontal"
+        android:onClick="onClickLogin"
         android:padding="10dp"
         android:text="@string/entrar"
         android:textColor="@color/color_five"
