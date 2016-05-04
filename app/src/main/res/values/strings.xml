@@ -21,5 +21,6 @@
     <string name="sobrenome">Sobrenome</string>
     <string name="prompt_confirm_password">Confirmar senha</string>
     <string name="register">Cadastrar</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_register">Cadastrar</string>
+    <string name="title_activity_chat">Conversas</string>
 </resources>
