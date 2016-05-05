@@ -13,7 +13,7 @@ public class MeetStudentsApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // Initialize typeface helper
+        // Inicializacao da fonte padrao da aplicacao
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/robotoregular.ttf");
     }
 }
