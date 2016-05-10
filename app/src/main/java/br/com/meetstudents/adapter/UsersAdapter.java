@@ -1,6 +1,7 @@
 package br.com.meetstudents.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,6 +85,12 @@ public class UsersAdapter extends BaseAdapter {
 
         Picasso.with(context)
                 .load(getItem(position).getUrlPhoto())
+                .into(holder.imageUser);
+
+        Uri uri = Uri.parse(user.getUrlPhoto());
+        Picasso.with(context)
+                .load(uri)
+                .error(R.drawable.placeholder)
                 .into(holder.imageUser);
 
         view.setTag(user);

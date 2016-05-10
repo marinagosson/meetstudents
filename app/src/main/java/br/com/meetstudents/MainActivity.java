@@ -34,14 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
-        users.add(new User("Brielle Walker", "https://randomuser.me/api/portraits/women/12.jpg"));
-        users.add(new User("Milja Lammi ", "https://randomuser.me/api/portraits/women/23.jpg"));
-        users.add(new User("Charlie Bronw ", "https://randomuser.me/api/portraits/women/24.jpg"));
-        users.add(new User("Andrea Gordon", "https://randomuser.me/api/portraits/women/7.jpg"));
-        users.add(new User("Patricia Torres", "https://randomuser.me/api/portraits/women/2.jpg"));
-        users.add(new User("Brooke Montgomery", "https://randomuser.me/api/portraits/women/82.jpg"));
-        users.add(new User("Nádia Teixeira", "https://randomuser.me/api/portraits/women/11.jpg"));
-
+        updateListUses();
 
         usersAdapter = new UsersAdapter(this, users);
 
@@ -70,15 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-
-                users.add(new User("Brielle Walker", "https://randomuser.me/api/portraits/women/12.jpg"));
-                users.add(new User("Milja Lammi ", "https://randomuser.me/api/portraits/women/23.jpg"));
-                users.add(new User("Charlie Bronw ", "https://randomuser.me/api/portraits/women/24.jpg"));
-                users.add(new User("Andrea Gordon", "https://randomuser.me/api/portraits/women/7.jpg"));
-                users.add(new User("Patricia Torres", "https://randomuser.me/api/portraits/women/2.jpg"));
-                users.add(new User("Brooke Montgomery", "https://randomuser.me/api/portraits/women/82.jpg"));
-                users.add(new User("Nádia Teixeira", "https://randomuser.me/api/portraits/women/11.jpg"));
-
+                updateListUses();
                 usersAdapter.notifyDataSetChanged();
             }
 
@@ -95,6 +80,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void updateListUses() {
+        users.add(new User("Brielle Walker", "https://randomuser.me/api/portraits/women/12.jpg"));
+        users.add(new User("Milja Lammi ", "https://randomuser.me/api/portraits/women/23.jpg"));
+        users.add(new User("Charlie Bronw ", "https://randomuser.me/api/portraits/women/24.jpg"));
+        users.add(new User("Andrea Gordon", "https://randomuser.me/api/portraits/women/7.jpg"));
+        users.add(new User("Patricia Torres", "https://randomuser.me/api/portraits/women/2.jpg"));
+        users.add(new User("Brooke Montgomery", "https://randomuser.me/api/portraits/women/82.jpg"));
+        users.add(new User("Nádia Teixeira", "https://randomuser.me/api/portraits/women/11.jpg"));
     }
 
     @Override
