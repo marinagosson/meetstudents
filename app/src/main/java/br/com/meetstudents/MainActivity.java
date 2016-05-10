@@ -7,8 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -16,11 +14,14 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.meetstudents.adapter.UsersAdapter;
+import br.com.meetstudents.model.User;
+
 public class MainActivity extends AppCompatActivity {
 
     SwipeFlingAdapterView flingContainer;
-    List<String> users = new ArrayList<>();
-    ArrayAdapter<String> arrayAdapter;
+    List<User> users = new ArrayList<>();
+    UsersAdapter usersAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,21 +34,25 @@ public class MainActivity extends AppCompatActivity {
 
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
-        users.add("Marina Gosson 1 ");
-        users.add("Marina Gosson 2 ");
-        users.add("Marina Gosson 3 ");
-        users.add("Marina Gosson 4 ");
-        users.add("Marina Gosson 5 ");
-        users.add("Marina Gosson 6 ");
+        users.add(new User("Brielle Walker", "https://randomuser.me/api/portraits/women/12.jpg"));
+        users.add(new User("Milja Lammi ", "https://randomuser.me/api/portraits/women/23.jpg"));
+        users.add(new User("Charlie Bronw ", "https://randomuser.me/api/portraits/women/24.jpg"));
+        users.add(new User("Andrea Gordon", "https://randomuser.me/api/portraits/women/7.jpg"));
+        users.add(new User("Patricia Torres", "https://randomuser.me/api/portraits/women/2.jpg"));
+        users.add(new User("Brooke Montgomery", "https://randomuser.me/api/portraits/women/82.jpg"));
+        users.add(new User("Nádia Teixeira", "https://randomuser.me/api/portraits/women/11.jpg"));
 
-        flingContainer.setAdapter(arrayAdapter);
+
+        usersAdapter = new UsersAdapter(this, users);
+
+        flingContainer.setAdapter(usersAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
                 users.remove(0);
-                arrayAdapter.notifyDataSetChanged();
+                usersAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -65,18 +70,20 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                // Ask for more data here
-//                users.add("XML ".concat(String.valueOf(i)));
-//                arrayAdapter.notifyDataSetChanged();
-//                Log.d("LIST", "notified");
-//                i++;
+
+                users.add(new User("Brielle Walker", "https://randomuser.me/api/portraits/women/12.jpg"));
+                users.add(new User("Milja Lammi ", "https://randomuser.me/api/portraits/women/23.jpg"));
+                users.add(new User("Charlie Bronw ", "https://randomuser.me/api/portraits/women/24.jpg"));
+                users.add(new User("Andrea Gordon", "https://randomuser.me/api/portraits/women/7.jpg"));
+                users.add(new User("Patricia Torres", "https://randomuser.me/api/portraits/women/2.jpg"));
+                users.add(new User("Brooke Montgomery", "https://randomuser.me/api/portraits/women/82.jpg"));
+                users.add(new User("Nádia Teixeira", "https://randomuser.me/api/portraits/women/11.jpg"));
+
+                usersAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onScroll(float scrollProgressPercent) {
-                View view = flingContainer.getSelectedView();
-                view.findViewById(R.id.right).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
-                view.findViewById(R.id.left).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
             }
         });
 
@@ -109,6 +116,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void right() {
+        flingContainer.getTopCardListener().selectRight();
+    }
+
+    public void left() {
+        flingContainer.getTopCardListener().selectLeft();
     }
 
 }
