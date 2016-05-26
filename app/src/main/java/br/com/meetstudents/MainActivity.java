@@ -15,9 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.meetstudents.adapter.UsersAdapter;
+import br.com.meetstudents.dao.UserDAO;
 import br.com.meetstudents.model.User;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SwipeFlingAdapterView.onFlingListener {
 
     SwipeFlingAdapterView flingContainer;
     List<User> users = new ArrayList<>();
@@ -34,62 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
-        updateListUses();
-
-        usersAdapter = new UsersAdapter(this, users);
+        usersAdapter = new UsersAdapter(this);
 
         flingContainer.setAdapter(usersAdapter);
-        flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
-            @Override
-            public void removeFirstObjectInAdapter() {
-                // this is the simplest way to delete an object from the Adapter (/AdapterView)
-                Log.d("LIST", "removed object!");
-                users.remove(0);
-                usersAdapter.notifyDataSetChanged();
-            }
+        flingContainer.setFlingListener(this);
 
-            @Override
-            public void onLeftCardExit(Object dataObject) {
-                //Do something on the left!
-                //You also have access to the original object.
-                //If you want to use it just cast it (String) dataObject
-                Toast.makeText(MainActivity.this, "Left!", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRightCardExit(Object dataObject) {
-                Toast.makeText(MainActivity.this, "Right!", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                updateListUses();
-                usersAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onScroll(float scrollProgressPercent) {
-            }
-        });
-
-        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClicked(int itemPosition, Object dataObject) {
-                Toast.makeText(MainActivity.this, "Clicked!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-    }
-
-    public void updateListUses() {
-        users.add(new User("Brielle Walker", "https://randomuser.me/api/portraits/women/12.jpg"));
-        users.add(new User("Milja Lammi ", "https://randomuser.me/api/portraits/women/23.jpg"));
-        users.add(new User("Charlie Bronw ", "https://randomuser.me/api/portraits/women/24.jpg"));
-        users.add(new User("Andrea Gordon", "https://randomuser.me/api/portraits/women/7.jpg"));
-        users.add(new User("Patricia Torres", "https://randomuser.me/api/portraits/women/2.jpg"));
-        users.add(new User("Brooke Montgomery", "https://randomuser.me/api/portraits/women/82.jpg"));
-        users.add(new User("Nádia Teixeira", "https://randomuser.me/api/portraits/women/11.jpg"));
     }
 
     @Override
@@ -121,4 +71,40 @@ public class MainActivity extends AppCompatActivity {
         flingContainer.getTopCardListener().selectLeft();
     }
 
+    @Override
+    public void removeFirstObjectInAdapter() {
+        Log.d("LIST", "removeFirstObjectInAdapter");
+        usersAdapter.removeItem(0);
+        usersAdapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void onLeftCardExit(Object o) {
+        Log.d("LIST", "removed object!");
+    }
+
+    @Override
+    public void onRightCardExit(Object dataObject) {
+        User user = (User) dataObject;
+
+        if (user.isLikedYour()) {
+            // combinou, mostrar alert
+            Toast.makeText(MainActivity.this, "Combinou!", Toast.LENGTH_SHORT).show();
+        }
+        user.setILike(true);
+        new UserDAO().updateUser(user);
+//                    }
+    }
+
+    @Override
+    public void onAdapterAboutToEmpty(int i) {
+        Log.d("LIST", "onAdapterAboutToEmpty");
+        usersAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onScroll(float v) {
+
+    }
 }

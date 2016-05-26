@@ -18,24 +18,32 @@
         android:supportsRtl="true"
         android:theme="@style/MeetStudentsTheme"
         tools:replace="android:icon">
+
+
         <activity android:name=".GuideActivity">
-
-        </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".RegisterActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/MeetStudentsTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" />
+
+        <activity android:name=".RegisterActivity" />
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/MeetStudentsTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ChatActivity"
             android:label="@string/title_activity_chat"

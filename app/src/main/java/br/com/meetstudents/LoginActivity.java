@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import br.com.meetstudents.application.MeetStudentsApplication;
+import br.com.meetstudents.sharedpreferences.AppPreferences;
+
 /**
  * A login screen that offers login via email/password.
  */
@@ -94,9 +97,10 @@ public class LoginActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
+            MeetStudentsApplication.getAppPreferences().saveBoolean(this, true, AppPreferences.PREFS_IS_LOGGED);
             Intent intent = new Intent(this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            finish();
         }
     }
 

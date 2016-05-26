@@ -33,10 +33,10 @@
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
-                    android:id="@+id/nome"
+                    android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/nome"
+                    android:hint="@string/name"
                     android:imeOptions="actionNext"
                     android:inputType="textAutoComplete"
                     android:maxLines="1"
@@ -59,7 +59,7 @@
                     android:inputType="textAutoComplete"
                     android:maxLines="1"
                     android:nextFocusDown="@+id/email"
-                    android:nextFocusUp="@+id/nome"
+                    android:nextFocusUp="@+id/name"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimary" />
 
