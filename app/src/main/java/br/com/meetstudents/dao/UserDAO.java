@@ -95,4 +95,19 @@ public class UserDAO {
         return null;
 
     }
+
+    public List<User> getAllUserMatched() {
+
+        try {
+            QueryBuilder<User, Integer> queryBuilder = userDAO.queryBuilder();
+            PreparedQuery<User> preparedQuery = queryBuilder.where().eq("isILike", true).and().eq("isLikeYour", true).prepare();
+            List<User> userList = userDAO.query(preparedQuery);
+            return userList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
 }

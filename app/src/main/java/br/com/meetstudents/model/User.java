@@ -3,6 +3,7 @@ package br.com.meetstudents.model;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Random;
  */
 
 @DatabaseTable(tableName = "user")
-public class User {
+public class User implements Serializable {
 
     @DatabaseField(generatedId = true, columnName = "id")
     private Integer id;

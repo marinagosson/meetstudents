@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.meetstudents.dao.UserDAO;
+import br.com.meetstudents.model.MessagesMatch;
 import br.com.meetstudents.model.User;
 
 /**
@@ -24,9 +25,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private final String TAG = DatabaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "meetStudents.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     private Dao<User, Integer> userDao = null;
+    private Dao<MessagesMatch, Integer> messageDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,6 +39,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
         try {
             TableUtils.createTable(connectionSource, User.class);
+            TableUtils.createTable(connectionSource, MessagesMatch.class);
             Log.d(TAG, "Create database");
         } catch (SQLException e) {
             Log.d("Can't create database", e.getMessage());
@@ -55,12 +58,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         users.add(new User("Milja Lammi ", "https://randomuser.me/api/portraits/women/2.jpg", false));
         users.add(new User("Charlie Bronw ", "https://randomuser.me/api/portraits/women/3.jpg", false));
         users.add(new User("Andrea Gordon", "https://randomuser.me/api/portraits/women/4.jpg", true));
-        users.add(new User("Patricia Torres", "https://randomuser.me/api/portraits/women/5.jpg", false));
+        users.add(new User("Patricia Torres", "https://randomuser.me/api/portraits/women/5.jpg", true));
         users.add(new User("Brooke Montgomery", "https://randomuser.me/api/portraits/women/6.jpg", false));
         users.add(new User("Nádia Teixeira", "https://randomuser.me/api/portraits/women/7.jpg", false));
 
         users.add(new User("Sandra Wendt", "https://randomuser.me/api/portraits/women/8.jpg", false));
-        users.add(new User("Katja Baumann ", "https://randomuser.me/api/portraits/women/9.jpg", false));
+        users.add(new User("Katja Baumann ", "https://randomuser.me/api/portraits/women/9.jpg", true));
         users.add(new User("Charlene Sanchez ", "https://randomuser.me/api/portraits/women/10.jpg", true));
         users.add(new User("Elizabeth White", "https://randomuser.me/api/portraits/women/11.jpg", false));
         users.add(new User("Roshni Van Embden", "https://randomuser.me/api/portraits/women/12.jpg", false));
@@ -79,7 +82,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         users.add(new User("Sue Pearson ", "https://randomuser.me/api/portraits/women/23.jpg", true));
         users.add(new User("Thea Mortensen ", "https://randomuser.me/api/portraits/women/24.jpg", false));
         users.add(new User("Larke Rasmussen", "https://randomuser.me/api/portraits/women/25.jpg", true));
-        users.add(new User("Maëly Bertrand", "https://randomuser.me/api/portraits/women/26.jpg", false));
+        users.add(new User("Maëly Bertrand", "https://randomuser.me/api/portraits/women/26.jpg", true));
         users.add(new User("Geke Verhoeve", "https://randomuser.me/api/portraits/women/27.jpg", true));
         users.add(new User("Alexandra Ward", "https://randomuser.me/api/portraits/women/28.jpg", false));
 
@@ -90,6 +93,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
             TableUtils.dropTable(connectionSource, User.class, true);
+            TableUtils.dropTable(connectionSource, MessagesMatch.class, true);
             onCreate(db, connectionSource);
         } catch (SQLException e) {
             Log.d("Can't drop databases", e.getMessage());
@@ -102,6 +106,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             userDao = getDao(User.class);
         }
         return userDao;
+    }
+
+    public Dao<MessagesMatch, Integer> getMessageDao() throws SQLException {
+        if (messageDao == null) {
+            messageDao = getDao(MessagesMatch.class);
+        }
+        return messageDao;
     }
 
 

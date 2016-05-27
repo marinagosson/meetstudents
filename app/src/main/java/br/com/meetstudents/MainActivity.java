@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
             finish();
             return true;
         } else if (item.getItemId() == R.id.action_chat) {
-            Intent intent = new Intent(this, ChatActivity.class);
+            Intent intent = new Intent(this, UsersMatchActivity.class);
             startActivity(intent);
         }
 
@@ -147,15 +147,8 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
         flingContainer.getTopCardListener().selectRight();
     }
 
-    public void alert(User user) {
+    public void alert(final User user) {
 
-
-//        LayoutInflater inflater =
-//                (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View view = inflater.inflate(R.layout.dialog_matched, null);
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setView(view);
 
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -163,17 +156,20 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
 
         final TextView vcEFulanaSeCombinam = (TextView) dialog.findViewById(R.id.voce_e_fulana_se_curtiram);
         final ImageView imagemDeQuemCombinouComVc = (ImageView) dialog.findViewById(R.id.imagem_quem_vc_combinou);
-        final Button mandarMengem = (Button) dialog.findViewById(R.id.mandar_uma_mensagem);
+        final Button mandarMensagem = (Button) dialog.findViewById(R.id.mandar_uma_mensagem);
         final Button continuarProcurando = (Button) dialog.findViewById(R.id.continuar_procurando);
 
         vcEFulanaSeCombinam.setText("Você e " + user.getName() + " se curtiram.");
 
         Picasso.with(getApplicationContext()).load(user.getUrlPhoto()).error(R.drawable.placeholder).into(imagemDeQuemCombinouComVc);
 
-        mandarMengem.setOnClickListener(new View.OnClickListener() {
+        mandarMensagem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+                intent.putExtra("userExtra", user);
+                startActivity(intent);
+                dialog.dismiss();
             }
         });
 

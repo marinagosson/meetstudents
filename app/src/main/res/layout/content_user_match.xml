@@ -5,11 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="br.com.meetstudents.ChatActivity"
-    tools:showIn="@layout/activity_chat">
+    tools:context=".UsersMatchActivity"
+    tools:showIn="@layout/activity_users_match">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_uses_mached"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

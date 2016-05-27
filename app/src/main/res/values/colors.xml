@@ -16,5 +16,7 @@
 
     <color name="color_background_dialog">#c8050505</color>
 
+    <color name="color_background_message">#ececec</color>
+
 
 </resources>
