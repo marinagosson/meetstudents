@@ -16,9 +16,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MeetStudentsTheme"
-        tools:replace="android:icon"
-        android:screenOrientation="portrait">
-        <activity android:name=".GuideActivity">
+        tools:replace="android:icon">
+        <activity
+            android:name=".GuideActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,9 +29,12 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/MeetStudentsTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,8 +45,11 @@
         <activity
             android:name=".UsersMatchActivity"
             android:label="@string/title_activity_chat"
+            android:screenOrientation="portrait"
             android:theme="@style/MeetStudentsTheme" />
-        <activity android:name=".ChatActivity"></activity>
+        <activity
+            android:name=".ChatActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
