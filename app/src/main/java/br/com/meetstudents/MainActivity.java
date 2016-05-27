@@ -1,5 +1,6 @@
 package br.com.meetstudents;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,9 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
 
         if (user.isLikedYour()) {
             // combinou, mostrar alert
+            alert(user);
             Toast.makeText(MainActivity.this, "Combinou!", Toast.LENGTH_SHORT).show();
         }
         user.setILike(true);
@@ -105,6 +113,47 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
 
     @Override
     public void onScroll(float v) {
+
+    }
+
+    public void alert(User user) {
+
+
+//        LayoutInflater inflater =
+//                (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        View view = inflater.inflate(R.layout.dialog_matched, null);
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setView(view);
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_matched);
+
+        final TextView vcEFulanaSeCombinam = (TextView) dialog.findViewById(R.id.voce_e_fulana_se_curtiram);
+        final ImageView imagemDeQuemCombinouComVc = (ImageView) dialog.findViewById(R.id.imagem_quem_vc_combinou);
+        final Button mandarMengem = (Button) dialog.findViewById(R.id.mandar_uma_mensagem);
+        final Button continuarProcurando = (Button) dialog.findViewById(R.id.continuar_procurando);
+
+        vcEFulanaSeCombinam.setText("Você e " + user.getName() + " se curtiram.");
+
+        Picasso.with(getApplicationContext()).load(user.getUrlPhoto()).error(R.drawable.placeholder).into(imagemDeQuemCombinouComVc);
+
+        mandarMengem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        continuarProcurando.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
 
     }
 }

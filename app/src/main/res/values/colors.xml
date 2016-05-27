@@ -14,5 +14,7 @@
 
     <color name="colorBackground">#fff</color>
 
+    <color name="color_background_dialog">#c8050505</color>
+
 
 </resources>
