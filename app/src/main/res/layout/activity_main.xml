@@ -1,53 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    tools:context="br.com.meetstudents.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/activity_main_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/MeetStudentsTheme.PopupOverlay" />
+    <include layout="@layout/toolbar" />
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/activity_main_toolbar"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:max_visible="4"
+        app:min_adapter_stack="6"
         app:rotation_degrees="15.5"
         tools:context=".MainActivity" />
 
-    <LinearLayout
-        android:id="@+id/buttons_like_and_dislike"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/frame"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal">
+    <include layout="@layout/buttons" />
 
-        <ImageView
-            android:id="@+id/left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/dislike"
-            android:text="Left" />
-
-        <ImageView
-            android:id="@+id/right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/like"
-            android:text="Right" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</merge>

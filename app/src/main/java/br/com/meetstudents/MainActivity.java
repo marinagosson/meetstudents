@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
     List<User> users = new ArrayList<>();
     UsersAdapter usersAdapter;
 
+    Boolean isFirstLeft = false;
+    Boolean isFirstRight = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +91,11 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
 
     @Override
     public void onLeftCardExit(Object o) {
+
+        if (!isFirstLeft) {
+            isFirstLeft = true;
+            Toast.makeText(MainActivity.this, "Não gostou", Toast.LENGTH_SHORT).show();
+        }
         Log.d("LIST", "removed object!");
     }
 
@@ -95,10 +103,14 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
     public void onRightCardExit(Object dataObject) {
         User user = (User) dataObject;
 
+        if (!isFirstRight) {
+            isFirstRight = true;
+            Toast.makeText(MainActivity.this, "Gostou", Toast.LENGTH_SHORT).show();
+        }
+
         if (user.isLikedYour()) {
             // combinou, mostrar alert
             alert(user);
-            Toast.makeText(MainActivity.this, "Combinou!", Toast.LENGTH_SHORT).show();
         }
         user.setILike(true);
         new UserDAO().updateUser(user);
@@ -114,6 +126,25 @@ public class MainActivity extends AppCompatActivity implements SwipeFlingAdapter
     @Override
     public void onScroll(float v) {
 
+    }
+
+    public void onClickLeft(View view) {
+
+        if (!isFirstLeft) {
+            isFirstLeft = true;
+            Toast.makeText(MainActivity.this, "Não gostou", Toast.LENGTH_SHORT).show();
+        }
+
+        flingContainer.getTopCardListener().selectLeft();
+    }
+
+    public void onClickRight(View view) {
+
+        if (!isFirstRight) {
+            isFirstRight = true;
+            Toast.makeText(MainActivity.this, "Gostou", Toast.LENGTH_SHORT).show();
+        }
+        flingContainer.getTopCardListener().selectRight();
     }
 
     public void alert(User user) {
