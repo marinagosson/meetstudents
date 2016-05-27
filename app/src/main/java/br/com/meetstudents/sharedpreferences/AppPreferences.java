@@ -3,11 +3,10 @@ package br.com.meetstudents.sharedpreferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * Created by marinagosson on 26/05/16.
- */
 public class AppPreferences {
 
+    // BANCO LOCAL
+    // SALVAR REFERENCIAS DO USUARIO LOGADO
 
     public static final String PREFS_NAME = "PREFS_NAME_APP";
     public static final String PREFS_IS_LOGGED = "APP_PREFS_IS_LOGGED";

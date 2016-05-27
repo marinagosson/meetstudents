@@ -17,9 +17,7 @@ import br.com.meetstudents.dao.UserDAO;
 import br.com.meetstudents.model.MessagesMatch;
 import br.com.meetstudents.model.User;
 
-/**
- * Created by marinagosson on 26/05/16.
- */
+// CLASSE DE CONFIGURACAO DO BANCO DE DADOS
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private final String TAG = DatabaseHelper.class.getName();

@@ -6,9 +6,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import java.io.Serializable;
 import java.util.Random;
 
-/**
- * Created by marinagosson on 09/05/16.
- */
+// MODELO DO USUARIO DO BANCO LOCAL
 
 @DatabaseTable(tableName = "user")
 public class User implements Serializable {

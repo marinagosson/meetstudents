@@ -5,9 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
 
-/**
- * Created by marinagosson on 09/05/16.
- */
+// MODELO DAS MENSAGENS DO BANCO LOCAL
 
 @DatabaseTable(tableName = "messagesMatch")
 public class MessagesMatch implements Serializable {

@@ -13,9 +13,6 @@ import br.com.meetstudents.application.MeetStudentsApplication;
 import br.com.meetstudents.database.DatabaseHelper;
 import br.com.meetstudents.model.User;
 
-/**
- * Created by marinagosson on 26/05/16.
- */
 public class UserDAO {
 
     private final String TAG = UserDAO.class.getName();

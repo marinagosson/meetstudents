@@ -15,9 +15,6 @@ import br.com.meetstudents.dao.MessageMatchDAO;
 import br.com.meetstudents.model.MessagesMatch;
 import br.com.meetstudents.model.User;
 
-/**
- * Created by marinagosson on 27/05/16.
- */
 public class MessageChatAdapter extends RecyclerView.Adapter<MessageChatAdapter.MessageViewHolver> implements View.OnClickListener {
 
     private Context context;

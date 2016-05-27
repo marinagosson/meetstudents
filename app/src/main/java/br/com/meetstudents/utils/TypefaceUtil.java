@@ -6,9 +6,6 @@ import android.util.Log;
 
 import java.lang.reflect.Field;
 
-/**
- * Created by marinagosson on 02/05/16.
- */
 public class TypefaceUtil {
 
     public static void overrideFont(Context context, String defaultFontNameToOverride, String customFontFileNameInAssets) {

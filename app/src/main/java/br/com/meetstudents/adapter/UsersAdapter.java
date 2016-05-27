@@ -23,9 +23,6 @@ import br.com.meetstudents.R;
 import br.com.meetstudents.dao.UserDAO;
 import br.com.meetstudents.model.User;
 
-/**
- * Created by marinagosson on 09/05/16.
- */
 public class UsersAdapter extends BaseAdapter {
 
     private List<User> users;

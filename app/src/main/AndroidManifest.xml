@@ -16,7 +16,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MeetStudentsTheme"
-        tools:replace="android:icon">
+        tools:replace="android:icon"
+        android:screenOrientation="portrait">
         <activity android:name=".GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

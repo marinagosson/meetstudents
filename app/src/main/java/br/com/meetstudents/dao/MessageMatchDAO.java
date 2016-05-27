@@ -13,9 +13,6 @@ import br.com.meetstudents.application.MeetStudentsApplication;
 import br.com.meetstudents.database.DatabaseHelper;
 import br.com.meetstudents.model.MessagesMatch;
 
-/**
- * Created by marinagosson on 26/05/16.
- */
 public class MessageMatchDAO {
 
     private final String TAG = MessageMatchDAO.class.getName();

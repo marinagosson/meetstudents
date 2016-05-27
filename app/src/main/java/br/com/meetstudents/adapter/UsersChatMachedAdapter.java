@@ -18,9 +18,6 @@ import br.com.meetstudents.R;
 import br.com.meetstudents.dao.UserDAO;
 import br.com.meetstudents.model.User;
 
-/**
- * Created by marinagosson on 27/05/16.
- */
 public class UsersChatMachedAdapter extends RecyclerView.Adapter<UsersChatMachedAdapter.UsersMatchViewHolver> implements View.OnClickListener {
 
     private Context context;

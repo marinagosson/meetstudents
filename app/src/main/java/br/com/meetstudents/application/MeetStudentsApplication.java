@@ -9,9 +9,6 @@ import br.com.meetstudents.database.DatabaseHelper;
 import br.com.meetstudents.sharedpreferences.AppPreferences;
 import br.com.meetstudents.utils.TypefaceUtil;
 
-/**
- * Created by marinagosson on 02/05/16.
- */
 public class MeetStudentsApplication extends Application {
 
     private final String TAG = MeetStudentsApplication.class.getName();
